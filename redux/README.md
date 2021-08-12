@@ -27,6 +27,7 @@
 <br/>
 <hr/>
 <br/>
+
 # 용어 설명
 ### Action - 상태에 어떤 변화가 필요한 경우 발생(하나의 객체)
 ```
@@ -75,10 +76,27 @@ subscribe: 액션 발생 시 특정 함수 호출
 <br/>
 <hr/>
 <br/>
+
 # 지켜야할 규칙
 
 1. 하나의 애플리케이션엔 하나의 스토어가 존재
 2. 상태는 읽기 전용 (불변성 지켜야 함)
 3. 변화를 일으키는 함수 리듀서는 순수한 함수여야 함<br/>(이전의 상태는 직접 변경하지 않고, 변화를 일으킨 새로운 상태 객체를 만들어서 반환해야함)	=> 불변성 유지!<br/>똑같은 파라미터로 호출된 리듀서 함수는 언제나 똑같은 결과값을 반환해야 함<br/>new Date(), Math.random()등 사용XXX
 
+<br/>
+<hr/>
+<br/>
+
+### redux module
+- 액션 타입, 액션 생성 함수, 리듀서
+	-> 하나의 파일에 몰아서 작성 (= ducks 패턴)
+
+### yarn add redux-devtools-extension
+- composeWithDevTools를 createStore 두 번째 parameter로 받아서 사용 -> 개발자 도구에서 redux 상태를 조회하고 dispatch된 action의 내역을 볼 수 있음
+(먼저 구글 chrome에서 redux devtools 설치해야함)
+
+### connect HOC
+- 재사용되는 값, 함수를 props로 받아올 수 있께 해주는 옛날 패턴
+- 요즘은 hooks로 대체
+- 보통 class형으로 작성할 때 사용
 

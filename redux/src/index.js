@@ -1,12 +1,23 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import './index.css'
+import App from './App'
+import reportWebVitals from './reportWebVitals'
+import {Provider} from 'react-redux'
+import { createStore } from 'redux'
+import rootReducer from './modules'
+import { composeWithDevTools } from 'redux-devtools-extension'
+
+// composeWithDevTools => 개발자 도구에서 redux 상태관리 등을 할 수 있음
+const store=createStore(rootReducer,composeWithDevTools())
+console.log(store.getState())
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
+
   </React.StrictMode>,
   document.getElementById('root')
 );
