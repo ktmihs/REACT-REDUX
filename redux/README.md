@@ -1,4 +1,4 @@
-# REDUX
+# REDUX 📝
 
 - 가장 사용률이 높은 상태 관리 라이브러리
 - 다른 파일로 분리시켜 관리 가능
@@ -6,7 +6,11 @@
 
 ### contextAPI + useReducer = redux 와 매우 유사
 
-## REDUX 장점
+<br/>
+<hr/>
+<br/>
+
+# ✔ REDUX 장점
 1. 미들웨어
 	비동기 작업을 더욱 체계적으로 관리 가능
 2. 유용한 함수와 Hooks 지원
@@ -19,7 +23,7 @@
 	변화관리 쉬움
 6. 이미 사용중인 프로젝트가 많음
 
-## Redux vs Context API
+# ✔ Redux vs Context API
 - 프로젝트 규모가 큰 경우(Redux), 작은 경우(Context API)
 - 비동기 작업을 자주 하는 경우(Redux), 아닌 경우(Context API)
 - 리덕스가 편할 경우(Redux), 아닌 경우(Context API)
@@ -28,7 +32,7 @@
 <hr/>
 <br/>
 
-# 용어 설명
+# ✔ 용어 설명
 ### Action - 상태에 어떤 변화가 필요한 경우 발생(하나의 객체)
 ```
 {
@@ -77,7 +81,7 @@ subscribe: 액션 발생 시 특정 함수 호출
 <hr/>
 <br/>
 
-# 지켜야할 규칙
+# ✔ 지켜야할 규칙 
 
 1. 하나의 애플리케이션엔 하나의 스토어가 존재
 2. 상태는 읽기 전용 (불변성 지켜야 함)
@@ -87,7 +91,7 @@ subscribe: 액션 발생 시 특정 함수 호출
 <hr/>
 <br/>
 
-### redux module
+# ✔ redux module
 - 액션 타입, 액션 생성 함수, 리듀서
 	-> 하나의 파일에 몰아서 작성 (= ducks 패턴)
 
