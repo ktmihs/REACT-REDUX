@@ -1,24 +1,31 @@
+import {delay, put, takeEvery, takeLatest} from 'redux-saga/effects'
+// saga middleware가 작동하도록 명령하는것
+
 const INCREASE='INCREASE'
 const DECREASE='DECREASE'
+const INCREASE_ASYNC='INCREASE_ASYNC'
+const DECREASE_ASYNC='DECREASE_ASYNC'
 
+// action 생성 함수
 export const increase=()=>({type:INCREASE})
 export const decrease=()=>({type:DECREASE})
+export const increaseAsync=()=>({type:INCREASE_ASYNC})
+export const decreaseAsync=()=>({type:DECREASE_ASYNC})
 
-// 액션이 dispatch되는 속도를 1초 delay (console에 1초 후에 보임)
-export const increaseAsync=()=>(dispatch)=>{
-    setTimeout(()=>{
-        dispatch(increase())
-    },1000)
+// generator function
+function* increaseSage(){
+    yield delay(1000)
+    yield put(increase())   // dispatch와 유사
 }
-// export const increaseAsync=//여기는 thunk함수를 만들어주는 함수//()=>//까지가 thunk함수//(dispatch)=>{
-//     setTimeout(()=>{
-//         dispatch(increase())
-//     },1000)
-// }
-export const decreaseAsync=()=>(dispatch)=>{
-    setTimeout(()=>{
-        dispatch(decrease())
-    },1000)
+
+function* decreaseSage(){
+    yield delay(1000)
+    yield put(decrease()) 
+}
+
+export function* counterSaga(){
+    yield takeEvery(INCREASE_ASYNC,increaseSage)    //INCREASE_ASYNC가 실행되면 increaseSage를 실행
+    yield takeLatest(DECREASE_ASYNC,decreaseSage)
 }
 
 const initialState=0

@@ -1,29 +1,14 @@
-const sleep=n=>new Promise(resolve=>setTimeout(resolve, n))
-
-const posts=[
-    {
-        id:1,
-        title:'title1',
-        body:'body1'
-    },
-    {
-        id:2,
-        title:'title2',
-        body:'body2'
-    },
-    {
-        id:3,
-        title:'title3',
-        body:'body3'
-    },
-]
+import axios from 'axios'
 
 export const getPosts=async()=>{
-    await sleep(500)
-    return posts
+    // const response=await axios.get('http://localhost:4000/posts')
+    // proxy로 localhost:4000을 받아왔기 때문에 앞부분 없어도 됨(현재 3000주소 사용해도 됨)
+    const response=await axios.get('/posts')
+    return response.data
 }
 
 export const getPostById=async(id)=>{
-    await sleep(500)
-    return posts.find(post=>post.id===id)
+    // const response=await axios.get('http://localhost:4000/posts/'+id)
+    const response=await axios.get('/posts/'+id)
+    return response.data
 }
